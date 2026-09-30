@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gadgets SmartBr | Melhores Ofertas e Achados Tech</title>
+    <meta name="description" content="O radar definitivo de gadgets, eletrônicos e achados com os maiores descontos do Mercado Livre.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #070d19;
+            --card-bg: #0d182e;
+            --card-border: #162a50;
+            --accent-cyan: #00d2ff;
+            --accent-green: #00f59b;
+            --accent-yellow: #ffd233;
+            --accent-red: #ff3b56;
+            --text-main: #f0f6fc;
+            --text-muted: #8b9bb4;
+            --radius-lg: 18px;
+            --radius-md: 12px;
+            --shadow-glow: 0 0 35px rgba(0, 210, 255, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            min-height: 100vh;
+            padding-bottom: 60px;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(0, 180, 255, 0.12) 0%, transparent 60%),
+                radial-gradient(circle at 10% 40%, rgba(0, 245, 155, 0.05) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 20px 16px;
+        }
+
+        /* Header do Perfil */
+        .profile-header {
+            text-align: center;
+            padding: 24px 0 16px;
+        }
+
+        .avatar-wrap {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 14px;
+        }
+
+        .avatar {
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            background: #0f2244;
+            border: 3px solid var(--accent-cyan);
+            box-shadow: 0 0 25px rgba(0, 210, 255, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            font-size: 38px;
+        }
+
+        .verified-badge {
+            position: absolute;
+            bottom: 2px;
+            right: 4px;
+            background: var(--accent-cyan);
+            color: #070d19;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 800;
+            border: 2px solid var(--bg);
+        }
+
+        .profile-title {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 4px;
+            background: linear-gradient(135deg, #fff 40%, var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .profile-tagline {
+            font-size: 14px;
+            color: var(--text-muted);
+            max-width: 420px;
+            margin: 0 auto 18px;
+            line-height: 1.45;
+        }
+
+        /* Botões de Ação Principais (Telegram / Instagram) */
+        .primary-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+
+        .btn-vip {
+            background: linear-gradient(135deg, #0088cc, #00b4d8);
+            color: #fff;
+            padding: 14px 20px;
+            border-radius: var(--radius-lg);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 6px 20px rgba(0, 136, 204, 0.35);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-vip:active {
+            transform: scale(0.98);
+        }
+
+        .btn-secondary-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-sub {
+            flex: 1;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            color: var(--text-main);
+            padding: 11px 16px;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background 0.15s ease;
+        }
+
+        .btn-sub:hover {
+            background: #142342;
+        }
+
+        /* Seção de Busca e Filtros */
+        .search-box {
+            position: relative;
+            margin-bottom: 14px;
+        }
+
+        .search-input {
+            width: 100%;
+            background: #0f1d38;
+            border: 1px solid var(--card-border);
+            padding: 13px 18px 13px 44px;
+            border-radius: var(--radius-lg);
+            color: #fff;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .search-input:focus {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 16px;
+            pointer-events: none;
+        }
+
+        .category-chips {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+            margin-bottom: 18px;
+            scrollbar-width: none;
+        }
+        .category-chips::-webkit-scrollbar { display: none; }
+
+        .chip {
+            padding: 7px 14px;
+            border-radius: 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            white-space: nowrap;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .chip.active {
+            background: var(--accent-cyan);
+            color: #070d19;
+            border-color: var(--accent-cyan);
+            font-weight: 700;
+        }
+
+        /* Meta Contador */
+        .meta-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            padding: 0 4px;
+        }
+
+        .live-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-green);
+            margin-right: 6px;
+            box-shadow: 0 0 8px var(--accent-green);
+        }
+
+        /* Lista de Produtos (Cards) */
+        .product-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .product-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-lg);
+            padding: 12px;
+            display: flex;
+            gap: 14px;
+            align-items: center;
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+            transition: transform 0.15s ease, border-color 0.15s ease;
+        }
+
+        .product-card:active {
+            transform: scale(0.985);
+            border-color: var(--accent-cyan);
+        }
+
+        .product-thumb-wrap {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            flex-shrink: 0;
+            border-radius: var(--radius-md);
+            background: #fff;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-thumb {
+            width: 90%;
+            height: 90%;
+            object-fit: contain;
+        }
+
+        .discount-badge {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            background: var(--accent-red);
+            color: #fff;
+            font-size: 10px;
+            font-weight: 800;
+            padding: 2px 5px;
+            border-radius: 6px;
+        }
+
+        .product-info {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .product-cat {
+            font-size: 11px;
+            color: var(--accent-cyan);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
+        }
+
+        .product-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-main);
+            line-height: 1.35;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-bottom: 6px;
+        }
+
+        .price-row {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+
+        .price-old {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-decoration: line-through;
+        }
+
+        .price-current {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--accent-green);
+        }
+
+        .btn-buy {
+            background: linear-gradient(135deg, #00d2ff, #0088cc);
+            color: #070d19;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 6px 12px;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            align-self: flex-start;
+        }
+
+        /* Empty state */
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            font-size: 14px;
+            display: none;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 16px 20px;
+            font-size: 11px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .footer a {
+            color: var(--accent-cyan);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Perfil Header -->
+        <header class="profile-header">
+            <div class="avatar-wrap">
+                <div class="avatar">⚡</div>
+                <div class="verified-badge">✓</div>
+            </div>
+            <h1 class="profile-title">Gadgets SmartBr</h1>
+            <p class="profile-tagline">O radar definitivo com as melhores ofertas e achados de tecnologia no Mercado Livre.</p>
+
+            <div class="primary-actions">
+                <a href="https://t.me/gadgetssmartbr" target="_blank" rel="noopener" class="btn-vip">
+                    <span>🚀</span> ENTRAR NO GRUPO VIP TELEGRAM (Grátis)
+                </a>
+                <div class="btn-secondary-row">
+                    <a href="https://instagram.com/gadgetssmartbr" target="_blank" rel="noopener" class="btn-sub">
+                        <span>📸</span> Instagram Oficial
+                    </a>
+                    <a href="https://mercadolivre.com/sec/2VAZsSx" target="_blank" rel="noopener" class="btn-sub">
+                        <span>🛒</span> Loja Completa ML
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Barra de Busca -->
+        <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="searchInput" class="search-input" placeholder="Buscar gadgets, fones, drones, câmeras..." autocomplete="off">
+        </div>
+
+        <!-- Filtros por Categoria -->
+        <div class="category-chips" id="categoryChips">
+            <button class="chip active" data-cat="all">🔥 Todas as Ofertas</button>
+            <button class="chip" data-cat="+50%">⚡ +50% OFF</button>
+            <button class="chip" data-cat="Fones & Áudio">🎧 Fones</button>
+            <button class="chip" data-cat="Smartwatches">⌚ Smartwatches</button>
+            <button class="chip" data-cat="Drones">🚁 Drones</button>
+            <button class="chip" data-cat="Casa Inteligente">🏠 Casa Inteligente</button>
+            <button class="chip" data-cat="Setup & Informática">💻 Setup & PC</button>
+        </div>
+
+        <div class="meta-bar">
+            <span><span class="live-dot"></span><span id="counter">150</span> ofertas verificadas hoje</span>
+            <span>Atualizado: 30/09/2026 às 15:04</span>
+        </div>
+
+        <!-- Grid de Produtos -->
+        <div class="product-list" id="productList">
+            <!-- Renderizado dinamicamente via JS -->
+        </div>
+
+        <div class="empty-state" id="emptyState">
+            Nenhum gadget encontrado para essa busca. Tente outro termo!
+        </div>
+
+        <footer class="footer">
+            <p>🛡️ <strong>Compra 100% Garantida</strong> pelo Mercado Livre.</p>
+            <p>Preços e estoques sujeitos a alterações pelo vendedor.</p>
+            <p style="margin-top: 8px;">© 2026 Gadgets SmartBr • Todos os direitos reservados.</p>
+        </footer>
+    </div>
+
+    <script>
+        const PRODUTOS = [{"id": 420, "titulo": "Air Fryer Britânia 6,5L 1700W 8 Funções Painel Digital Redstone BAF65A", "preco_de": 456.18, "preco_por": 296.1, "desconto": 35, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_606677-MLA115733886141_082026-AB.webp", "link": "https://meli.la/2BcBPyw", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 419, "titulo": "Power Bank 65w, 20000mah, Com Display Carregamento Rápido Power Para Celular Samsung E Motorola E iPhone, 2-saídas Com Cabo Embutido Tipo-c, Com Cabo Rápido(resistência À Tração Superalta), Cor Preto", "preco_de": 312.89, "preco_por": 199.38, "desconto": 36, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_751309-MLA100932701094_122025-AB.webp", "link": "https://meli.la/1wEBLKL", "cupom": null, "categoria": "Setup & Informática"}, {"id": 418, "titulo": "Carregador Portátil Power Bank Turbo i2GO 20000mah 20w Com Display Digital", "preco_de": 329.9, "preco_por": 164.0, "desconto": 50, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_683366-MLA111894379697_052026-AB.webp", "link": "https://meli.la/16BL6vm", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 417, "titulo": "Samsung Galaxy Ultra Smartwatch Titânio Resistente A Água Caixa Preto Pulseira Preto", "preco_de": 4999.0, "preco_por": 2268.0, "desconto": 55, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_851512-MLA99470517418_112025-AB.webp", "link": "https://meli.la/2xWgNk1", "cupom": null, "categoria": "Fones & Áudio"}, {"id": 416, "titulo": "Relógio Inteligente Smartwatch GPS Autônomo À prova d'água 3ATM NOVANTE Masculino Feminino Esportivo Digital 530mAh Preto Bluetooth Chamadas Notificações Instantâneas Android IOS Com Lanterna Bússola", "preco_de": 598.0, "preco_por": 198.0, "desconto": 67, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_905711-MLA115745774435_082026-AB.webp", "link": "https://meli.la/34mvdPt", "cupom": null, "categoria": "Smartwatches"}, {"id": 415, "titulo": "Hub Usb C 5 Portas Extensor Adaptador Macbook 3.0 + Sd + Tf", "preco_de": 48.99, "preco_por": 35.0, "desconto": 29, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_825103-MLA105906361621_012026-AB--hub-usb-c-5-portas-extensor-adaptador-macbook-30--sd--tf.webp", "link": "https://meli.la/1REjuaH", "cupom": null, "categoria": "Setup & Informática"}, {"id": 414, "titulo": "Hub Usb-c Support 4k 5 Em 1 Hdmi Rj45 Usb 3.0 Cinza", "preco_de": 78.9, "preco_por": 53.51, "desconto": 32, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_620872-MLA115543600996_082026-AB.webp", "link": "https://meli.la/2pryKYK", "cupom": null, "categoria": "Setup & Informática"}, {"id": 413, "titulo": "Projetor De Imagens Refletor Natalino D'agua 3d Natalinos 127/220v Preto", "preco_de": 199.0, "preco_por": 149.71, "desconto": 25, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_887331-MLB116859623906_092026-AB--projetor-de-imagens-refletor-natalino-dagua-3d-natalinos.webp", "link": "https://meli.la/2QBCuu4", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 412, "titulo": "Luminária Solar Com Sensor De Movimento 138leds2400mah Preto 1pcs", "preco_de": 136.19, "preco_por": 65.37, "desconto": 52, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_667079-MLB109743298777_032026-AB--luminaria-solar-com-sensor-de-movimento-138leds2400mah.webp", "link": "https://meli.la/2WiFWZs", "cupom": null, "categoria": "Casa Inteligente"}, {"id": 411, "titulo": "Kit 7x Perfil Sobrepor 20mm Aluminio Para Fita Led 2 Metros", "preco_de": 315.0, "preco_por": 214.2, "desconto": 32, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_612343-MLB116706127531_082026-AB-kit-7x-perfil-sobrepor-20mm-aluminio-para-fita-led-2-metros.webp", "link": "https://meli.la/2iVpMpJ", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 410, "titulo": "Impressora De Etiquetas De Envio Compatível Bluetooth E Usb 127/220v", "preco_de": 499.0, "preco_por": 299.39, "desconto": 40, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_757314-MLA112937894182_072026-AB--impressora-de-etiquetas-de-envio-compativel-bluetooth-e-usb.webp", "link": "https://meli.la/18HjQNH", "cupom": null, "categoria": "Setup & Informática"}, {"id": 409, "titulo": "Lixeira Inteligente Com Sensor Automática Banheiro preto Lixeira Automática De 16 Litros Com Sensor Balde Lixo Adequada Para Cozinha E Banheiro", "preco_de": 89.99, "preco_por": 65.17, "desconto": 28, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_931483-MLA105341339923_012026-AB.webp", "link": "https://meli.la/2skvmgm", "cupom": null, "categoria": "Casa Inteligente"}, {"id": 408, "titulo": "Suporte Articulado Monitor Mesa 13 A 32 Vesa 75 100  - 10 Kg Preto", "preco_de": 119.9, "preco_por": 74.21, "desconto": 38, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_608602-MLB115966048557_082026-AB--suporte-articulado-monitor-mesa-13-a-32-vesa-75-100---10-kg.webp", "link": "https://meli.la/2ECczV9", "cupom": null, "categoria": "Setup & Informática"}, {"id": 407, "titulo": "Echo Dot 5ª Geração Alto-falante De 1,73 Azul Amazon", "preco_de": 522.86, "preco_por": 399.0, "desconto": 24, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_912604-MLA96106424407_102025-AB.webp", "link": "https://meli.la/1mn7VSq", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 406, "titulo": "Fone De Ouvido Soundcore by Anker P20i Graves Poderosos e Impactantes Bluetooth 5.3 30H de Reprodução Resistência à Água 2 Mics IA para Chamadas Claras Personalização de Som via App Cor Preto", "preco_de": 299.0, "preco_por": 155.9, "desconto": 48, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_730568-MLA99983575997_112025-AB.webp", "link": "https://meli.la/2d27nXg", "cupom": null, "categoria": "Fones & Áudio"}, {"id": 405, "titulo": "Sanduicheira Grill Elétrica 2 Em 1 Prensa Antiaderente Preto 220v", "preco_de": 159.0, "preco_por": 78.9, "desconto": 50, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_762828-MLB114649452679_072026-AB--sanduicheira-grill-eletrica-2-em-1-prensa-antiaderente.webp", "link": "https://meli.la/1Qm6L9V", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 404, "titulo": "Balança Digital Cozinha 10kg Touch Alta Precisão Portátil Balança de Cozinha Profissional Para Pesar Alimentos Confeitaria Dieta Fitness Nutricional Eletrônica Display LCD Aço Inox Função Tara Davely", "preco_de": 54.9, "preco_por": 27.0, "desconto": 51, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_934856-MLA115140922057_072026-AB.webp", "link": "https://meli.la/2pRW2tf", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 403, "titulo": "Fechadura Digital Biométrica Inteligente Ekaza Atria Bluetooth Com Senha E App", "preco_de": 269.99, "preco_por": 161.06, "desconto": 40, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_667585-MLA110638836780_052026-AB.webp", "link": "https://meli.la/23wV7Ha", "cupom": null, "categoria": "Casa Inteligente"}, {"id": 402, "titulo": "Arma Gun Pistola Suporte Controle Compativel Vr Meta Quest 3 Preto", "preco_de": 170.0, "preco_por": 122.19, "desconto": 28, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_852170-MLB109563409598_042026-AB--arma-gun-pistola-suporte-controle-compativel-vr-meta-quest-3.webp", "link": "https://meli.la/2vyiMJg", "cupom": null, "categoria": "Setup & Informática"}, {"id": 401, "titulo": "Par De Tripé De Iluminação 2 Mts P/ Ring Light Tripés Flash", "preco_de": 167.88, "preco_por": 61.74, "desconto": 63, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_836158-MLB48523922414_122021-AB--par-de-tripe-de-iluminacao-2-mts-p-ring-light-tripes-flash.webp", "link": "https://meli.la/2q7naRT", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 400, "titulo": "Tripe Celular Selfie Ia Inteligente Facial 1.75m Rotação 360 Preto", "preco_de": 304.9, "preco_por": 145.9, "desconto": 52, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_936301-MLB110173850189_042026-AB--tripe-celular-selfie-ia-inteligente-facial-175m-rotacao-360.webp", "link": "https://meli.la/1mNd28p", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 399, "titulo": "Telescópio Astronômico 70mm Com Tripé F300 70m F30070m Ultra Preto", "preco_de": 329.0, "preco_por": 244.43, "desconto": 26, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_762296-MLB95328843243_102025-AB--telescopio-astronomico-70mm-com-tripe-f300-70m-f30070m-ultra.webp", "link": "https://meli.la/1in5z6h", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 398, "titulo": "Cartão Micro Sd 32gb 16tbw Western Digital Purple", "preco_de": 159.9, "preco_por": 92.0, "desconto": 42, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_763509-MLA109754029485_032026-AB.webp", "link": "https://meli.la/2Md4jde", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 397, "titulo": "Mini Drone Com Tela De 4,3 Polegadas, Duas Câmeras F177 Cinza", "preco_de": 659.0, "preco_por": 319.61, "desconto": 52, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_842559-MLB101098891514_122025-AB--mini-drone-com-tela-de-43-polegadas-duas-cameras-f177.webp", "link": "https://meli.la/1eoPkfD", "cupom": null, "categoria": "Drones"}, {"id": 396, "titulo": "Impressora Térmica Bluetooth USB 110mm Código De Barras E Etiquetas + 2 Rolo De Etiqueta Adesivas Portátil Etiquetas De Envios Com 10 X 15 CM 127/220V Android iOS Windows MAC App Com ML Full SHOPE", "preco_de": 559.0, "preco_por": 414.81, "desconto": 26, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_680297-MLA113977899567_062026-AB.webp", "link": "https://meli.la/2fcGMSs", "cupom": null, "categoria": "Setup & Informática"}, {"id": 395, "titulo": "Smart Tv Box Aquário Stv-3000 Plus 4k 16gb 5g Android 11 Preto Padrão", "preco_de": 499.0, "preco_por": 303.99, "desconto": 39, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_752355-MLB116063265080_092026-AB--smart-tv-box-aquario-stv3000-plus-4k-16gb-5g-android-11.webp", "link": "https://meli.la/1yHGJ1q", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 394, "titulo": "Zrse Anel Inteligente Ip68 Monitor Saúde Sono Movimento Preto 11", "preco_de": 210.0, "preco_por": 142.2, "desconto": 32, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_778343-MLB114527445948_082026-AB--zrse-anel-inteligente-ip68-monitor-saude-sono-movimento.webp", "link": "https://meli.la/1oyFGJH", "cupom": null, "categoria": "Setup & Informática"}, {"id": 393, "titulo": "Anel Inteligente Zrse Pressão Sono Cardíaca Spo2 Ios Android Dourado 9", "preco_de": 220.0, "preco_por": 143.0, "desconto": 35, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_857706-MLB117684202785_092026-AB--anel-inteligente-zrse-pressao-sono-cardiaca-spo2-ios-android.webp", "link": "https://meli.la/32gACLe", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 392, "titulo": "Power Bank Basike com Cabo Embutido de 22.5W e 20.000mAh para iPhone e Android", "preco_de": 214.0, "preco_por": 115.54, "desconto": 46, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_758732-MLA103081906542_012026-AB.webp", "link": "https://meli.la/2rih7FG", "cupom": null, "categoria": "Setup & Informática"}, {"id": 391, "titulo": "Hub USB-C portas 11em 1 Dock Station, Adaptador com 2xHDMI 4K, USB 5Gbps, Gigabit RJ45, Leitor SD/TF, Power Delivery PD 100W, Carregamento Rápido, Compatível com MacBook/Windows,Plug Play, Alumínio", "preco_de": 339.0, "preco_por": 224.25, "desconto": 34, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_636467-MLA86028621155_062025-AB.webp", "link": "https://meli.la/2JTVtgX", "cupom": null, "categoria": "Setup & Informática"}, {"id": 390, "titulo": "Cabo Starlink Mini Usb-c Tipo C 3 Metros Strimtech Alimentação Energia Carregador Antena Internet Satélite 12v 24v Fonte Pd Power Bank Veicular Camping Motorhome Trailer Cinza Escuro", "preco_de": 69.9, "preco_por": 37.52, "desconto": 46, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_942366-MLA115040792390_082026-AB.webp", "link": "https://meli.la/1h1VxfQ", "cupom": null, "categoria": "Setup & Informática"}, {"id": 389, "titulo": "Hub Usb 7 Portas Adaptador 3.0 Extensor USB-C 4k Rápido Personalized View", "preco_de": 39.49, "preco_por": 31.59, "desconto": 20, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_947378-MLA113591443327_062026-AB.webp", "link": "https://meli.la/2wKsTyA", "cupom": null, "categoria": "Setup & Informática"}, {"id": 388, "titulo": "Luminária Solar Split 138 Leds Sensor De Movimento Externa Preto", "preco_de": 88.0, "preco_por": 67.43, "desconto": 23, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_982248-MLB114200165279_072026-AB--luminaria-solar-split-138-leds-sensor-de-movimento-externa.webp", "link": "https://meli.la/1evpgQE", "cupom": null, "categoria": "Casa Inteligente"}, {"id": 387, "titulo": "Refletor Led 300w Prova Dágua Com Sensor De Presença Carcaça Preta Luz Branco Frio", "preco_de": 99.98, "preco_por": 46.06, "desconto": 54, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_660618-MLA112464849371_052026-AB.webp", "link": "https://meli.la/28EVaDA", "cupom": null, "categoria": "Casa Inteligente"}, {"id": 386, "titulo": "Fita Led Rgb 20m Usb Bluetooth App Controle Remoto Ip20 3535 Rgb 127/220v Usb", "preco_de": 78.0, "preco_por": 39.0, "desconto": 50, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_861861-MLB115828913004_092026-AB--fita-led-rgb-20m-usb-bluetooth-app-controle-remoto-ip20-3535.webp", "link": "https://meli.la/2vgMehx", "cupom": null, "categoria": "Setup & Informática"}, {"id": 385, "titulo": "Fita Led Rgb 30m Bluetooth App Controle Fonte 24v 127/220v Rgb 127/220v 24v", "preco_de": 119.0, "preco_por": 57.0, "desconto": 52, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_607847-MLB115829387928_092026-AB--fita-led-rgb-30m-bluetooth-app-controle-fonte-24v-127220v.webp", "link": "https://meli.la/285ipB9", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 384, "titulo": "Suporte Para Monitor de Mesa Articulado Jhamba Para Telas de 13\" a 27\" com Rotação 360° e Fixação Por Morsa", "preco_de": 169.99, "preco_por": 74.0, "desconto": 56, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_997351-MLA96120171587_102025-AB.webp", "link": "https://meli.la/1eceFJo", "cupom": null, "categoria": "Setup & Informática"}, {"id": 383, "titulo": "Combo Teclado e Mouse sem fio Logitech MK235 Layout ABNT2", "preco_de": 169.9, "preco_por": 126.48, "desconto": 26, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_865718-MLA99950871363_112025-AB.webp", "link": "https://meli.la/1hZJQW6", "cupom": null, "categoria": "Setup & Informática"}, {"id": 382, "titulo": "Caixa Som Rádio Retrô Led Bluetooth Am Fm Sw Usb Premium P2", "preco_de": 169.99, "preco_por": 107.82, "desconto": 37, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_722955-MLB88925016048_082025-AB-caixa-som-radio-retr-led-bluetooth-am-fm-sw-usb-premium-p2.webp", "link": "https://meli.la/2Wt6Ay5", "cupom": null, "categoria": "Fones & Áudio"}, {"id": 381, "titulo": "Caixa de Som Bluetooth Caixinha Grande 2 Altos Falantes 10w-hz 5.0 Boombox Com Radio Fm E Entrada Usb Pendrive", "preco_de": 198.99, "preco_por": 159.19, "desconto": 20, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_681719-MLA99467991212_112025-AB.webp", "link": "https://meli.la/2nQddho", "cupom": null, "categoria": "Fones & Áudio"}, {"id": 380, "titulo": "Sanduicheira Grill Elétrica 2 Em 1 Antiaderente 750w 127v Preto 220v", "preco_de": 115.0, "preco_por": 89.97, "desconto": 22, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_964679-MLB113901312952_072026-AB--sanduicheira-grill-eletrica-2-em-1-antiaderente-750w-127v.webp", "link": "https://meli.la/2xspZ4v", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 379, "titulo": "Mini Soprador Ar Turbo 130000rpm Sem Fio Recarregável Carregamento USB-C 3 Bico adaptador Preto Níveis Portátil Multiuso Limpeza Carro Portátil Acende Churrasqueira Woosh", "preco_de": 78.99, "preco_por": 45.99, "desconto": 42, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_917115-MLA116367752196_092026-AB.webp", "link": "https://meli.la/2aB2uYg", "cupom": null, "categoria": "Setup & Informática"}, {"id": 378, "titulo": "Fechadura Digital Reconhecimento Facial E Palma Da Mão Wifi Preto", "preco_de": 1060.0, "preco_por": 788.49, "desconto": 26, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_956828-MLA97974475843_112025-AB.webp", "link": "https://meli.la/1HEAnYB", "cupom": null, "categoria": "Casa Inteligente"}, {"id": 377, "titulo": "Kit 10 Luminária Led P/ Poste 200w Iluminação Publica Bivolt 110v/220v (bivolt) Preto Branco-frio", "preco_de": 680.0, "preco_por": 458.0, "desconto": 33, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_683960-MLB111724539700_062026-AB--kit-10-luminaria-led-p-poste-200w-iluminacao-publica-bivolt.webp", "link": "https://meli.la/11rDHgL", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 376, "titulo": "Hq3 Estabilizador Gimbal Celular 3 Eixos Com Luz E Tripé Cinza", "preco_de": 559.0, "preco_por": 270.0, "desconto": 52, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_979369-MLB116686148839_082026-AB--hq3-estabilizador-gimbal-celular-3-eixos-com-luz-e-tripe.webp", "link": "https://meli.la/1tRVVPs", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 375, "titulo": "Tripé Extensível Profissional Para Celular 1,9m, Bastão De Selfie Dobrável Portátil Com Controle Remoto Bluetooth E Alça Equilíbrio , Rotação 360°, Parafuso 1/4 Compatível Câmeras, Gopro,ios E Android", "preco_de": 166.16, "preco_por": 74.43, "desconto": 55, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_937159-MLA106493644059_022026-AB.webp", "link": "https://meli.la/2apRhCT", "cupom": null, "categoria": "Casa Inteligente"}, {"id": 374, "titulo": "Mini Drone Profissional L900 Pro Câmera C/4k, 2 Bateri,O motor sem escova, controle remoto 2.4ghz transmite imagens em tempo real. Preto, presente requintado", "preco_de": 1110.0, "preco_por": 666.0, "desconto": 40, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_750841-MLA109742329435_032026-AB.webp", "link": "https://meli.la/1BXHe8L", "cupom": null, "categoria": "Drones"}, {"id": 373, "titulo": "Pendrive 500 Hinos Ccb Cantados E Tocados-avulsos E Hinário Prateado", "preco_de": 99.9, "preco_por": 77.98, "desconto": 22, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_648085-MLB116672779104_092026-AB--pendrive-500-hinos-ccb-cantados-e-tocadosavulsos-e-hinario.webp", "link": "https://meli.la/1nmMZsU", "cupom": "5% OFF com Cupom", "categoria": "Outros Gadgets"}, {"id": 372, "titulo": "Ssd Sata 2.5 Hawking 240gb Leitura 500mbs Gravação 450mbs", "preco_de": 418.9, "preco_por": 265.49, "desconto": 37, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_769365-MLA96428336534_102025-AB.webp", "link": "https://meli.la/1PfTmUS", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 371, "titulo": "Smartwatch Aurafit G12, Gps, Resistência À Água 3atm, Preto Preto Mesh Verde-militar/preto", "preco_de": 419.0, "preco_por": 262.52, "desconto": 37, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_634437-MLB114100775731_072026-AB--smartwatch-aurafit-g12-gps-resistencia-a-agua-3atm-preto.webp", "link": "https://meli.la/29nJMry", "cupom": "R$ 40 OFF com Cupom", "categoria": "Smartwatches"}, {"id": 370, "titulo": "HUAWEI WATCH GT 7 Pro 46mm Smart Watch, Bateria de até 21 dias, Caixa em liga de titânio e bisel em cerâmica nano-tech, ECG, Monitoramento da Frequência Cardíaca, Golfe, Ciclismo, Amarelo", "preco_de": 2699.0, "preco_por": 1499.0, "desconto": 44, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_691630-MLA114994439614_082026-AB.webp", "link": "https://meli.la/1F9QVLe", "cupom": null, "categoria": "Fones & Áudio"}, {"id": 369, "titulo": "Basike Carregador Portátil Power Bank 20000mah Turbo 22.5w Rápido Com 2 Cabos USB Tipo-C / Tipo-L Saída 12V Output P/ iPhone 18 Pro Max Duo Samsung Galaxy S26 Ultra Xiaomi Motorola Anatel Viagem B201B", "preco_de": 292.29, "preco_por": 183.98, "desconto": 37, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_867902-MLA116243540600_092026-AB.webp", "link": "https://meli.la/111x8S8", "cupom": null, "categoria": "Setup & Informática"}, {"id": 368, "titulo": "Power Bank 20000mah Carregador Portátil 66w Rápido Cabo Leve Azul", "preco_de": 199.9, "preco_por": 109.07, "desconto": 45, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_607907-MLA111212637253_052026-AB.webp", "link": "https://meli.la/1Br24eB", "cupom": null, "categoria": "Setup & Informática"}, {"id": 367, "titulo": "Adaptador Hdmi Para Vga 1080p Full Hd Com Cabo Áudio P2 20cm Plug Play Sem Driver Compatível Notebook Pc Desktop Xbox Projetor Monitor Tv Tela Vga Eletric Teck", "preco_de": 44.99, "preco_por": 9.39, "desconto": 79, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_767918-MLA118215556891_092026-AB.webp", "link": "https://meli.la/1itAJ51", "cupom": null, "categoria": "Setup & Informática"}, {"id": 366, "titulo": "Cabo Vga 1,5m Macho X Macho Com Filtro Para Monitor Pc Tv Projetor Notebook 15 Pinos Conexão Estável Alta Qualidade Imagem Nítida Compatível Com Tela Externa Uso Residencial Profissional Eletric Teck", "preco_de": 32.99, "preco_por": 11.0, "desconto": 67, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_851972-MLA112574467525_062026-AB.webp", "link": "https://meli.la/2rvzH41", "cupom": null, "categoria": "Setup & Informática"}, {"id": 365, "titulo": "Arandela Led Com Sensor De Presença Sem Fio Recarregável Usb Preto", "preco_de": 50.0, "preco_por": 31.5, "desconto": 37, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_643647-MLA114549539806_082026-AB.webp", "link": "https://meli.la/1EBGt1z", "cupom": null, "categoria": "Casa Inteligente"}, {"id": 364, "titulo": "Fita Led 320 Cob 3m Usb Branco Quente 3000k Tv Pc Carro Luz Branco-quente", "preco_de": 57.89, "preco_por": 30.0, "desconto": 48, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_783477-MLA107659878783_022026-AB.webp", "link": "https://meli.la/2S8PfWa", "cupom": null, "categoria": "Setup & Informática"}, {"id": 363, "titulo": "Fita Led Rgb 20m 600 Leds Bluetooth App Controle Fonte 24v Rgb 127/220v 24v 20m", "preco_de": 99.0, "preco_por": 47.0, "desconto": 52, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_697906-MLB115830390894_092026-AB--fita-led-rgb-20m-600-leds-bluetooth-app-controle-fonte-24v.webp", "link": "https://meli.la/1m4Fkyf", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 362, "titulo": "Fita Led Rgb 10m Usb Bluetooth App Controle Remoto Ip20 3535 Rgb 127/220v 24v", "preco_de": 69.0, "preco_por": 32.0, "desconto": 54, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_722744-MLB116340802610_092026-AB--fita-led-rgb-10m-usb-bluetooth-app-controle-remoto-ip20-3535.webp", "link": "https://meli.la/2BuWPdz", "cupom": null, "categoria": "Setup & Informática"}, {"id": 361, "titulo": "1000 Etiqueta Térmica Sem Rolo 10X15 / 100X150 Formato Resma Cor Branco Resma 4\" X 6\" Etiqueta Adesiva Compatível Impressora Térmica Código De Barras E Etiquetas E-Commerce Full 10x15CM 100x150MM", "preco_de": 99.0, "preco_por": 55.82, "desconto": 44, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_813572-MLA99987884069_112025-AB.webp", "link": "https://meli.la/2KWJjYe", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 360, "titulo": "Suporte Monitor Único 35  Braço Mola Vesa 75/100 Preto", "preco_de": 320.0, "preco_por": 165.0, "desconto": 48, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_676802-MLB110827903941_042026-AB--suporte-monitor-unico-35--braco-mola-vesa-75100.webp", "link": "https://meli.la/2mTW3qX", "cupom": null, "categoria": "Setup & Informática"}, {"id": 359, "titulo": "Suporte Base De Mesa Alexa Para Echo Dot 5 Ou 4 - Star Boy Cor Preto Echo Dot 5", "preco_de": 61.1, "preco_por": 44.2, "desconto": 28, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_805998-MLA100081816087_122025-AB.webp", "link": "https://meli.la/1YLLh8q", "cupom": null, "categoria": "Setup & Informática"}, {"id": 358, "titulo": "Rádio Retrô Grande Madeira Antigo Recarregável Usb Bivolt Marrom-escuro 127/220v", "preco_de": 339.9, "preco_por": 232.0, "desconto": 32, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_739724-MLB113161476465_062026-AB--radio-retro-grande-madeira-antigo-recarregavel-usb-bivolt.webp", "link": "https://meli.la/2eNvZTV", "cupom": null, "categoria": "Setup & Informática"}, {"id": 357, "titulo": "Suporte Articulado Microfone Mesa Braço Low Profile Preto Preto", "preco_de": 310.0, "preco_por": 212.83, "desconto": 31, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_619488-MLB115634874638_092026-AB--suporte-articulado-microfone-mesa-braco-low-profile-preto.webp", "link": "https://meli.la/1yCyWLk", "cupom": null, "categoria": "Fones & Áudio"}, {"id": 356, "titulo": "Fone De Ouvido Sem Fio Para Treinos soundcore Sport X20 ANC Cancelamento De Ruído Ativo Bluetooth 5.3 Multiponto Ganchos Ajustáveis Graves Potentes Bateria 48H IP68 Resistente Suor e Poeira Cor Preto", "preco_de": 816.0, "preco_por": 482.0, "desconto": 41, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_980790-MLA99367365098_112025-AB.webp", "link": "https://meli.la/19QrmCC", "cupom": null, "categoria": "Fones & Áudio"}, {"id": 355, "titulo": "Cafeteira Portátil Para Preparo De Café Quente E Frio 15 Bar Branco 220v", "preco_de": 569.0, "preco_por": 244.67, "desconto": 57, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_964034-MLA114583255249_072026-AB--cafeteira-portatil-para-preparo-de-cafe-quente-e-frio-15-bar.webp", "link": "https://meli.la/2okFkR8", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 354, "titulo": "Fechadura Digital Kuanttum Delta Pro Wi-Fi Biométrica", "preco_de": 499.98, "preco_por": 362.4, "desconto": 28, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_976860-MLA99991328859_112025-AB.webp", "link": "https://meli.la/2aidRnJ", "cupom": null, "categoria": "Casa Inteligente"}, {"id": 353, "titulo": "Toca-discos Bluetooth 10 Em 1, Toca-discos De 3 Velocidades Mogno 127/220v", "preco_de": 1299.0, "preco_por": 970.0, "desconto": 25, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_653288-MLB99592737039_112025-AB--tocadiscos-bluetooth-10-em-1-tocadiscos-de-3-velocidades.webp", "link": "https://meli.la/2E1p1xr", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 352, "titulo": "Impressora Térmica de Etiquetas Bluetooth Niimbot B1 Space Blue", "preco_de": 349.99, "preco_por": 198.99, "desconto": 43, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_737704-MLA99984630160_122025-AB.webp", "link": "https://meli.la/1Jb9MLy", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 351, "titulo": "Ring Light Led Profissional Com Tripé 2,10m Estrutura Preta Luz Quente/frio/neutro", "preco_de": 109.98, "preco_por": 51.71, "desconto": 53, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_933150-MLA111416881128_052026-AB.webp", "link": "https://meli.la/1zmVZw5", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 350, "titulo": "Gimbal Tokqi M02 Estabilizador De 3 Eixos Para Celular Preto", "preco_de": 799.0, "preco_por": 367.67, "desconto": 54, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_788449-MLB118028927347_092026-AB--gimbal-tokqi-m02-estabilizador-de-3-eixos-para-celular.webp", "link": "https://meli.la/1brcpny", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 349, "titulo": "Tripé Para Celular e Câmera Basike 180cm com Rastreamento Facial IA e Controle Bluetooth", "preco_de": 342.68, "preco_por": 198.75, "desconto": 42, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_951013-MLA99448401816_112025-AB.webp", "link": "https://meli.la/1MFQh32", "cupom": null, "categoria": "Casa Inteligente"}, {"id": 348, "titulo": "Drone L600max-evo 8k Sin Escobillas Profissional Gps Drone Preto", "preco_de": 4588.0, "preco_por": 1559.0, "desconto": 66, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_616312-MLB84709644448_052025-AB--drone-l600maxevo-8k-sin-escobillas-profissional-gps-drone.webp", "link": "https://meli.la/13r4K1M", "cupom": null, "categoria": "Drones"}, {"id": 347, "titulo": "Tv Box Smartpro 4k Android Prosb-3000/16gb Homologado Cor Prosb-3000/16 Gb 4K Tipo de controle remoto Padrão", "preco_de": 359.9, "preco_por": 269.9, "desconto": 25, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_896312-MLA114062735565_072026-AB.webp", "link": "https://meli.la/1erCKnB", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 346, "titulo": "Smart Ring Anel Inteligente Orbitx Tecnologia Avançada Prateado 11", "preco_de": 559.0, "preco_por": 126.72, "desconto": 77, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_908854-MLB110308035244_052026-AB--smart-ring-anel-inteligente-orbitx-tecnologia-avancada.webp", "link": "https://meli.la/1KCDGDy", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 345, "titulo": "Anel Inteligente Zrse Pressão Sono Cardíaca Spo2 Ios Android Preto 12", "preco_de": 220.0, "preco_por": 143.0, "desconto": 35, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_624369-MLB117684706397_092026-AB--anel-inteligente-zrse-pressao-sono-cardiaca-spo2-ios-android.webp", "link": "https://meli.la/11MtpDp", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 344, "titulo": "Relógio Smartwatch Redmi Watch 6 Active Global Gps Bluetooth Preto", "preco_de": 589.9, "preco_por": 336.0, "desconto": 43, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_668528-MLB116486200861_082026-AB--relogio-smartwatch-redmi-watch-6-active-global-gps-bluetooth.webp", "link": "https://meli.la/27FBwAj", "cupom": null, "categoria": "Smartwatches"}, {"id": 343, "titulo": "Relógio Smartwatch Aurafit Am05 Tela Amoled Aço Inoxidável Cor De Aço Inoxidável Mesh Prata/preto", "preco_de": 319.0, "preco_por": 192.87, "desconto": 40, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_670827-MLB114039129607_072026-AB--relogio-smartwatch-aurafit-am05-tela-amoled-aco-inoxidavel.webp", "link": "https://meli.la/2BQ9Jpw", "cupom": "R$ 40 OFF com Cupom", "categoria": "Smartwatches"}, {"id": 342, "titulo": "Carregador Portátil De Bolso Power Bank Pocket Com iPhone Notebook Samsung Apple Xiaomi Android Mac Ios 5000mah Preto", "preco_de": 120.0, "preco_por": 43.0, "desconto": 64, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_778701-MLA116639147067_082026-AB.webp", "link": "https://meli.la/1sXnP5E", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 341, "titulo": "Power Bank Basike 30.000mAh Portátil, Carregamento Rápido 22.5W, com Cabos Embutidos e Display LED para iPhone e Samsung", "preco_de": 271.0, "preco_por": 181.57, "desconto": 33, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_612792-MLA109103758117_032026-AB.webp", "link": "https://meli.la/1r4ofRa", "cupom": null, "categoria": "Setup & Informática"}, {"id": 340, "titulo": "Hub Usb-c 4 Em 1 Usb 3.0 5gbps Tipo C Notebook Macbook Prateado", "preco_de": 39.99, "preco_por": 19.75, "desconto": 51, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_954587-MLB107573913582_032026-AB--hub-usbc-4-em-1-usb-30-5gbps-tipo-c-notebook-macbook.webp", "link": "https://meli.la/1rXajzC", "cupom": null, "categoria": "Setup & Informática"}, {"id": 339, "titulo": "Hub Usb-c 7 Em 1 Macbook Pro Air M1 M2 Hdmi 4k Usb 3.0 Alumínio Tipo C Hdm", "preco_de": 69.99, "preco_por": 38.0, "desconto": 46, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_826390-MLB110241759389_042026-AB--hub-usbc-7-em-1-macbook-pro-air-m1-m2-hdmi-4k-usb-30.webp", "link": "https://meli.la/2enSSu6", "cupom": null, "categoria": "Setup & Informática"}, {"id": 338, "titulo": "Tomada Inteligente Wi-fi Etw 1002 Intelbras Preto", "preco_de": 194.9, "preco_por": 71.92, "desconto": 63, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_704452-MLA109410918796_042026-AB.webp", "link": "https://meli.la/1eWsE7m", "cupom": "R$ 71 , 92 com Cupom", "categoria": "Casa Inteligente"}, {"id": 337, "titulo": "Fita Led Rgb 10m Bluetooth App Controle Fonte 24v 127/220v Rgb 127/220v 24v", "preco_de": 77.0, "preco_por": 37.0, "desconto": 52, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_784096-MLB116020125450_092026-AB--fita-led-rgb-10m-bluetooth-app-controle-fonte-24v-127220v.webp", "link": "https://meli.la/2BRyYK2", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 336, "titulo": "15m Fita Led Bluetooth Rgb Inteligente Controle Ip65 24v Colorido 110220 V 24v", "preco_de": 149.98, "preco_por": 97.0, "desconto": 35, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_778935-MLB114346135690_082026-AB--15m-fita-led-bluetooth-rgb-inteligente-controle-ip65-24v.webp", "link": "https://meli.la/2DdVnhX", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 335, "titulo": "Lixeira Inteligente Automática 14l Com Sensor Infravermelho", "preco_de": 129.99, "preco_por": 74.01, "desconto": 43, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_824226-MLB116827534373_082026-AB-lixeira-inteligente-automatica-14l-com-sensor-infravermelho.webp", "link": "https://meli.la/25HqfXk", "cupom": null, "categoria": "Casa Inteligente"}, {"id": 334, "titulo": "Kit 5x Fita Rotuladora Dymo Letratag Compatível 12mm Transparente Letra Preta", "preco_de": 75.0, "preco_por": 49.53, "desconto": 34, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_690358-MLB118028914353_092026-AB--kit-5x-fita-rotuladora-dymo-letratag-compativel-12mm.webp", "link": "https://meli.la/1oENUmX", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 333, "titulo": "Mini Impressora Etiquetas Térmica Bluetooth Portatil Armazém Preto 127/220v", "preco_de": 599.0, "preco_por": 282.0, "desconto": 53, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_737140-MLB112939930644_072026-AB--mini-impressora-etiquetas-termica-bluetooth-portatil-armazem.webp", "link": "https://meli.la/1WpeeCd", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 332, "titulo": "Caixa Caixinha De Som Bluetooth Pendrive Fm Sd Portátil Ipx6 Preto 127/220v", "preco_de": 89.99, "preco_por": 59.42, "desconto": 34, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_826343-MLB109478821243_032026-AB--caixa-caixinha-de-som-bluetooth-pendrive-fm-sd-portatil-ipx6.webp", "link": "https://meli.la/2fmTJdt", "cupom": null, "categoria": "Fones & Áudio"}, {"id": 331, "titulo": "Caixa De Som Acústica Philco Pcx7100 Flash Lights Bass 750w Cor Preto", "preco_de": 1200.0, "preco_por": 554.21, "desconto": 54, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_953037-MLA91989864565_092025-AB.webp", "link": "https://meli.la/1ywnLFD", "cupom": null, "categoria": "Fones & Áudio"}, {"id": 330, "titulo": "Kit Viagem Outin Nano Cafeteira Portátil Com Capa Protetora Cinza-escuro 5v", "preco_de": 1943.0, "preco_por": 1309.0, "desconto": 33, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_992130-MLB115599734716_092026-AB--kit-viagem-outin-nano-cafeteira-portatil-com-capa-protetora.webp", "link": "https://meli.la/33ng2Hn", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 329, "titulo": "Mini Soprador Ar Turbo 130000rpm Sem Fio Recarregável Carregamento USB-C 3 Bico adaptador Preto Níveis Portátil Multiuso Limpeza Teclado Carro Acende Churrasqueira Woosh", "preco_de": 78.99, "preco_por": 45.99, "desconto": 42, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_917115-MLA116367752196_092026-AB.webp", "link": "https://meli.la/2aB2uYg", "cupom": null, "categoria": "Setup & Informática"}, {"id": 328, "titulo": "Mercusys MC510 Câmera de Segurança Wi-Fi Externa 2K 3MP, Rotação 360°, Visão Noturna Colorida, Detecção de Pessoas e Rastreamento de Movimento, IP65, Áudio Bidirecional, Alexa e MicroSD até 512 GB", "preco_de": 239.0, "preco_por": 164.25, "desconto": 31, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_840426-MLA104261970721_012026-AB.webp", "link": "https://meli.la/1Jpwii2", "cupom": null, "categoria": "Casa Inteligente"}, {"id": 327, "titulo": "Patinete Elétrico Oimotoo 500w 40km/h C/assento Destacável Preto Star Wars", "preco_de": 3999.0, "preco_por": 1380.92, "desconto": 66, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_865951-MLB114892862561_072026-AB--patinete-eletrico-oimotoo-500w-40kmh-cassento-destacavel.webp", "link": "https://meli.la/2Y8dMGE", "cupom": "R$ 1.380 , 92 com Cupom", "categoria": "Outros Gadgets"}, {"id": 326, "titulo": "Gimbal Suporte Celular 360° Rastreamento Facial Lives Video Preto", "preco_de": 159.0, "preco_por": 91.22, "desconto": 43, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_963326-MLB112603676374_062026-AB--gimbal-suporte-celular-360-rastreamento-facial-lives-video.webp", "link": "https://meli.la/1HeWDew", "cupom": null, "categoria": "Setup & Informática"}, {"id": 325, "titulo": "Ring Light Engarb 20cm com Tripé de Mesa USB 3 Tons de Cor", "preco_de": 75.45, "preco_por": 34.0, "desconto": 55, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_720779-MLA99598951996_122025-AB.webp", "link": "https://meli.la/2DnGVou", "cupom": null, "categoria": "Setup & Informática"}, {"id": 324, "titulo": "Kit 2 Cartão De Memória 128gb Câmera Notebook Wifi Ultra Hd", "preco_de": 74.98, "preco_por": 50.1, "desconto": 33, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_837450-MLA115549316599_082026-AB.webp", "link": "https://meli.la/2UjJ6Vw", "cupom": null, "categoria": "Casa Inteligente"}, {"id": 323, "titulo": "Estabilizador Celular Profissional Eixos Beexcellent Cinza", "preco_de": 495.0, "preco_por": 274.53, "desconto": 44, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_994498-MLA107633776644_032026-AB.webp", "link": "https://meli.la/2iD1ZRj", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 322, "titulo": "Drone Pro Full Hd Dobrável Wi-fi Câmera Completo 2 Baterias Cinza Pro Full Fotografia Aerea", "preco_de": 209.99, "preco_por": 138.59, "desconto": 34, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_695993-MLA110276352360_052026-AB--drone-pro-full-hd-dobravel-wifi-camera-completo-2-baterias.webp", "link": "https://meli.la/1vgARGz", "cupom": null, "categoria": "Drones"}, {"id": 317, "titulo": "Projetor HY320 Mini Portátil Hardline Smart TV Android WiFi 6 390 ANSI Lumens Full HD Suporte 4K HDMI Bluetooth 85-200 Polegadas Alto Falante Com Controle Remoto Bivolt", "preco_de": 359.99, "preco_por": 216.89, "desconto": 40, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_627012-MLA116318324696_092026-AB.webp", "link": "https://meli.la/2GnXAio", "cupom": null, "categoria": "Setup & Informática"}, {"id": 316, "titulo": "Alimentador Inteligente Comedouro Automático Pet App Newpet NP1322 Preto", "preco_de": 298.0, "preco_por": 195.16, "desconto": 34, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_811861-MLA94997799004_102025-AB.webp", "link": "https://meli.la/2UmBNJp", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 315, "titulo": "Seladora A Vácuo Portátil 6 Em 1 Alimentos Seco Úmido Bivolt 127/220v", "preco_de": 299.0, "preco_por": 119.89, "desconto": 60, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_610710-MLB117954889763_092026-AB--seladora-a-vacuo-portatil-6-em-1-alimentos-seco-umido-bivolt.webp", "link": "https://meli.la/2q4nRqG", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 314, "titulo": "Lixeira Automática Sensor Recarregável Escritório", "preco_de": 259.99, "preco_por": 69.99, "desconto": 73, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_752828-MLA103231671466_012026-AB.webp", "link": "https://meli.la/1SiS65k", "cupom": null, "categoria": "Casa Inteligente"}, {"id": 313, "titulo": "Impressora Térmica Niimbot B1 Bluetooth Rotuladora + 1 Rolo Etiqueta", "preco_de": 349.99, "preco_por": 226.39, "desconto": 35, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_643692-MLA99462260762_112025-AB.webp", "link": "https://meli.la/1i73N21", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 312, "titulo": "Case Hd/ssd 2.5 Sata Usb 3.0 Plug & Play Adaptador Portátil Transparente", "preco_de": 29.96, "preco_por": 22.47, "desconto": 25, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_973153-MLB112926558712_072026-AB--case-hdssd-25-sata-usb-30-plug--play-adaptador-portatil.webp", "link": "https://meli.la/16BgTtV", "cupom": null, "categoria": "Setup & Informática"}, {"id": 311, "titulo": "Fechadura Eletronica Digital Com Biometria Senha Tuya App Preto", "preco_de": 479.98, "preco_por": 216.72, "desconto": 55, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_845244-MLA113994767768_072026-AB.webp", "link": "https://meli.la/11czLwF", "cupom": "R$ 216 , 72 com Cupom", "categoria": "Casa Inteligente"}, {"id": 309, "titulo": "Câmera IP Intelbras IM1 2MP Full HD Wi-Fi Áudio Bidirecional", "preco_de": 219.0, "preco_por": 130.41, "desconto": 40, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_876515-MLA99946785157_112025-AB.webp", "link": "https://meli.la/13RoVxf", "cupom": null, "categoria": "Casa Inteligente"}, {"id": 308, "titulo": "Refletor Luminária Solar LED 100W com Sensor de Movimento Luz Branca Fria", "preco_de": 49.99, "preco_por": 25.02, "desconto": 50, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_909279-MLA99610470106_122025-AB.webp", "link": "https://meli.la/1xabQH8", "cupom": null, "categoria": "Casa Inteligente"}, {"id": 307, "titulo": "Luminária Projetor Estrela 360º Galaxy Abajur Star Master Cor da cúpula Azul Cor da estrutura Branco", "preco_de": 44.9, "preco_por": 29.56, "desconto": 34, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_615335-MLA100104367319_122025-AB.webp", "link": "https://meli.la/1hBozMr", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 306, "titulo": "Luminária Solar Led 3 Cabeças 122 Leds Sensor De Movimento 1pcs", "preco_de": 78.99, "preco_por": 51.95, "desconto": 34, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_678414-MLB115173235350_082026-AB--luminaria-solar-led-3-cabecas-122-leds-sensor-de-movimento.webp", "link": "https://meli.la/1Ptj3T3", "cupom": null, "categoria": "Casa Inteligente"}, {"id": 305, "titulo": "Fita de led cob 360 led/m branco quente 3000k 5m bivolt kit completo com fonte", "preco_de": 61.29, "preco_por": 39.0, "desconto": 36, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_840722-MLA114309427706_082026-AB.webp", "link": "https://meli.la/1vC2rXp", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 303, "titulo": "Controle GameSir G7 SE com Fio para Xbox One Series S X PC Hall Effect Botões Mecânicos Cor Laranja", "preco_de": 459.9, "preco_por": 279.0, "desconto": 39, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_621157-MLA99867561257_112025-AB.webp", "link": "https://meli.la/2jmuMd4", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 302, "titulo": "Power Bank Turbo Portátil 20000mah Turbo 22.5w Premium Universal Rápida Carga Para Celular iPhone Xiaomi Motorola LG Smartwatch Tablet Display Digital Viagens Festa Ios Hardline Preto Ou B", "preco_de": 129.9, "preco_por": 66.0, "desconto": 49, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_753409-MLA110029138996_042026-AB.webp", "link": "https://meli.la/2qXt6nQ", "cupom": null, "categoria": "Smartwatches"}, {"id": 301, "titulo": "Mouse Gamer MMO E-YOOSO X-39Pro 18 Botões Programáveis, DPI Ajustável até 24.000 e Iluminação RGB para Alta Performance em Jogos", "preco_de": 269.0, "preco_por": 169.0, "desconto": 37, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_977085-MLA99422753054_112025-AB.webp", "link": "https://meli.la/2HEweLA", "cupom": null, "categoria": "Setup & Informática"}, {"id": 300, "titulo": "Mouse gamer sem fio RGB Mouse Recarregável Mouse, Mouse Tri-Modes BT5.1/Tipo C com fio/Sem fio 2.4G - Sensor 30G - 12.800 DPI - 96g Leve 9 ComandosAjustávels Up to 260h Battery Life for PC/Mac", "preco_de": 233.15, "preco_por": 120.0, "desconto": 48, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_854525-MLA116198276028_092026-AB.webp", "link": "https://meli.la/2jAUSSa", "cupom": null, "categoria": "Casa Inteligente"}, {"id": 299, "titulo": "Basike Teclado Mecânico Gamer Sem Fio Tri-Mode QWERTY Com Numerico Switch Vermelho Com Tela RGB Numérico Knob Adaptador USB-C / 2.4GHz Portugues Para Win PC/MacOS/Linux Computador Acessorios Preto", "preco_de": 444.62, "preco_por": 289.0, "desconto": 35, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_976760-MLA114100706359_072026-AB.webp", "link": "https://meli.la/1UvmqnU", "cupom": null, "categoria": "Setup & Informática"}, {"id": 298, "titulo": "Hub Usb Adaptador 3.0 Extensor 4 Portas Computador Notebook Prateado", "preco_de": 24.99, "preco_por": 17.86, "desconto": 28, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_879419-MLB117915850529_092026-AB--hub-usb-adaptador-30-extensor-4-portas-computador-notebook.webp", "link": "https://meli.la/1kYWP7J", "cupom": null, "categoria": "Setup & Informática"}, {"id": 297, "titulo": "Fone De Ouvido Sem Fio Eletro mex J-87pro Tws Bluetooth 6.0, 40 Horas De Reprodução, à prova d'água IPX8, Com Microfone, Para TV, Smartphone, Laptop, Computador E Esportes Preto", "preco_de": 99.9, "preco_por": 57.9, "desconto": 42, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_643489-MLA108241719426_032026-AB.webp", "link": "https://meli.la/23HiGbQ", "cupom": null, "categoria": "Fones & Áudio"}, {"id": 296, "titulo": "Fone De Ouvido Com Fio USB Entrada Tipo C Compatível Com Iphone 15 16 17 Samsung S24 S25 S26 Android Xioami C Microfone Estéreo Anti Ruido Integrado De Conexão Profissional Direta E Controle De Volume", "preco_de": 47.9, "preco_por": 21.33, "desconto": 56, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_880523-MLA116313889539_082026-AB.webp", "link": "https://meli.la/23Zv786", "cupom": null, "categoria": "Fones & Áudio"}, {"id": 295, "titulo": "Caixa de Som Bluetooth 300W Basike Caixa Som Portátil Ba-RAD134 30000mAh Ipx6 Boombox Subwoofer Com RGB Luzes LED, Power Bank", "preco_de": 2191.0, "preco_por": 1158.0, "desconto": 47, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_910082-MLA114254186503_072026-AB.webp", "link": "https://meli.la/26HNfd2", "cupom": null, "categoria": "Fones & Áudio"}, {"id": 294, "titulo": "Fone De Ouvido Sem Fio Bluetooth 5.4 Inova Tws", "preco_de": 128.88, "preco_por": 54.8, "desconto": 58, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_627748-MLB99174243324_112025-AB-fone-de-ouvido-sem-fio-bluetooth-54-inova-tws.webp", "link": "https://meli.la/1RvNntA", "cupom": null, "categoria": "Fones & Áudio"}, {"id": 293, "titulo": "Difusor De Aromas 250ml Sensação Com Varetas", "preco_de": 69.9, "preco_por": 17.59, "desconto": 75, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_915401-MLB112927355848_072026-AB--difusor-de-aromas-250ml-sensacao-com-varetas.webp", "link": "https://meli.la/1tuUxjL", "cupom": null, "categoria": "Casa Inteligente"}, {"id": 292, "titulo": "Smartwatch Feminino Aurafit Am23 Tela 1.32 Dourado-champanhe Dourado-champanhe Smartwatches Para Mulheres Dourado-champanhe/branco-pérola", "preco_de": 289.0, "preco_por": 191.0, "desconto": 34, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_714997-MLB114942735299_072026-AB--smartwatch-feminino-aurafit-am23-tela-132-douradochampanhe.webp", "link": "https://meli.la/277E6uM", "cupom": "R$ 40 OFF com Cupom", "categoria": "Smartwatches"}, {"id": 291, "titulo": "Smartwatch Samsung Galaxy Watch 8 40mm Prateado com Bluetooth e Wi-Fi", "preco_de": 2999.0, "preco_por": 1214.19, "desconto": 60, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_948561-MLA99497292352_112025-AB.webp", "link": "https://meli.la/2gcGTdq", "cupom": "R$ 1.214 , 19 com Cupom", "categoria": "Smartwatches"}, {"id": 290, "titulo": "Fechadura Eletronica A Prova D'água Interna E Externa Nova Preto", "preco_de": 390.0, "preco_por": 257.0, "desconto": 34, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_938530-MLB107286590258_032026-AB--fechadura-eletronica-a-prova-dagua-interna-e-externa-nova.webp", "link": "https://meli.la/25S6Zuw", "cupom": null, "categoria": "Casa Inteligente"}, {"id": 289, "titulo": "Câmera Solar Wifi 4 Mp Áudio Bidirecional Preto", "preco_de": 470.6, "preco_por": 193.02, "desconto": 59, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_908312-CBT117302858033_092026-AB.webp", "link": "https://meli.la/11XRuU7", "cupom": null, "categoria": "Casa Inteligente"}, {"id": 288, "titulo": "Câmera de Segurança Externa Yoosee Wi-Fi Full HD 360° Visão Noturna IP66", "preco_de": 156.42, "preco_por": 90.99, "desconto": 42, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_645783-MLA109892003622_042026-AB.webp", "link": "https://meli.la/32xmDzF", "cupom": null, "categoria": "Casa Inteligente"}, {"id": 287, "titulo": "Câmera Lâmpada Segurança Inteligente Visão Noturna Hd Wifi Cor Branco", "preco_de": 78.9, "preco_por": 49.89, "desconto": 37, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_791881-MLA96833156891_102025-AB.webp", "link": "https://meli.la/2NyySWk", "cupom": null, "categoria": "Casa Inteligente"}, {"id": 286, "titulo": "Projetor De Natal Led Desenhos Natalinos Decoração Jardim Branco-neutro 110220 V", "preco_de": 69.99, "preco_por": 48.99, "desconto": 30, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_697108-MLB117829076285_092026-AB--projetor-de-natal-led-desenhos-natalinos-decoracao-jardim.webp", "link": "https://meli.la/2ZrifT9", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 285, "titulo": "Refletor Led 200w Holofote Com Sensor De Presença Bivolt Carcaça Preta Luz Branco Frio 110v/220v", "preco_de": 99.98, "preco_por": 46.06, "desconto": 54, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_619075-MLA112464639091_052026-AB.webp", "link": "https://meli.la/17WkXFT", "cupom": null, "categoria": "Casa Inteligente"}, {"id": 284, "titulo": "Luz Led Luminaria Poste Solar Rua Parede Refletor 180 Cob 2pçs 180w Com Sensor De Movimento Cor Preto", "preco_de": 78.99, "preco_por": 51.25, "desconto": 35, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_790170-MLA94939336004_102025-AB.webp", "link": "https://meli.la/1PHhagu", "cupom": null, "categoria": "Casa Inteligente"}, {"id": 283, "titulo": "Amazon Firetv Stick 4k Stick Wi-fi-6 Com Alexa Por Voz Preto Preto De Voz", "preco_de": 560.0, "preco_por": 291.99, "desconto": 48, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_798218-MLB110420929143_042026-AB--amazon-firetv-stick-4k-stick-wifi6-com-alexa-por-voz-preto.webp", "link": "https://meli.la/1ofCMn7", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 282, "titulo": "Suporte Para Ps5 Horizontal Slim Com Disco Base Mesa Play5", "preco_de": 39.9, "preco_por": 18.53, "desconto": 54, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_623140-MLB114262094629_072026-AB-suporte-para-ps5-horizontal-slim-com-disco-base-mesa-play5.webp", "link": "https://meli.la/1zxR4fm", "cupom": null, "categoria": "Setup & Informática"}, {"id": 281, "titulo": "Controle joystick sem fio Sony PlayStation PS5 gray camuflado", "preco_de": 749.0, "preco_por": 424.15, "desconto": 43, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_744855-MLA95675768770_102025-AB.webp", "link": "https://meli.la/2AvvwP5", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 280, "titulo": "Adaptador Usb3.2 Fêmea P/usb Tipo-c Macho 120w E 10gbps Adaptador Usb-c Para Usb", "preco_de": 49.9, "preco_por": 16.94, "desconto": 66, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_924355-MLB116446258188_092026-AB--adaptador-usb32-femea-pusb-tipoc-macho-120w-e-10gbps.webp", "link": "https://meli.la/1VRFVxC", "cupom": null, "categoria": "Setup & Informática"}, {"id": 279, "titulo": "Carregador Portátil Power Bank Basike 20000mAh 22.5W Rápido Cabos Embutidos Tipo C iPhone Samsung", "preco_de": 311.25, "preco_por": 189.08, "desconto": 39, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_919783-MLA99989975911_112025-AB.webp", "link": "https://meli.la/1btpHvx", "cupom": null, "categoria": "Setup & Informática"}, {"id": 278, "titulo": "Carregador Portátil Power Bank Turbo 20000mah 22.5w universal para iphone samsung motorola xiaomi Com Display Digital DTimp", "preco_de": 299.9, "preco_por": 104.4, "desconto": 65, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_899751-MLA99504871320_112025-AB.webp", "link": "https://meli.la/1MNWpha", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 277, "titulo": "Fone de Ouvido Sem Fio Bluetooth 6.0 TWS IPX4 Resistente à Água, Som Estéreo e Graves Potentes, para Celular, Esportes e Notebook, Preto - Inova", "preco_de": 107.66, "preco_por": 49.0, "desconto": 54, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_905137-MLA116363584136_092026-AB.webp", "link": "https://meli.la/17N7oMZ", "cupom": null, "categoria": "Fones & Áudio"}, {"id": 276, "titulo": "Forestory 2 Caixas De Som Profissional P2 Mesa Kit Caixinhas Pc Notebook Computador Usb Alta Qualidade Potente Ambiente Par Amplificada Portátil Tv Celular Fio Grave Estéreo Subwoofer Gamer", "preco_de": 78.0, "preco_por": 50.19, "desconto": 36, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_740645-MLA113968719002_072026-AB.webp", "link": "https://meli.la/2Rn6Gky", "cupom": null, "categoria": "Fones & Áudio"}, {"id": 275, "titulo": "Mouse Gamer Sem Fio Freewolf A3 Dual Mode Business Gray", "preco_de": 163.59, "preco_por": 42.8, "desconto": 74, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_967764-CBT111889132533_052026-AB--mouse-gamer-sem-fio-freewolf-a3-dual-mode.webp", "link": "https://meli.la/1PxgKFT", "cupom": null, "categoria": "Setup & Informática"}, {"id": 274, "titulo": "Mouse Gamer Dual-mode 2.4g Bluetooth 1600 Dpi Rgb Estampa Branco", "preco_de": 99.0, "preco_por": 58.41, "desconto": 41, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_749014-MLB113380707418_072026-AB--mouse-gamer-dualmode-24g-bluetooth-1600-dpi-rgb-estampa.webp", "link": "https://meli.la/1PTqNZy", "cupom": null, "categoria": "Setup & Informática"}, {"id": 273, "titulo": "Hub Usb 8 Portas Saída Dupla Tipo C Entrada 3.0 2.0 Áudio P2 Cartão De Memória E Micro Sd Cabo Adaptador Macbook iPad Notebook Tablet Celular Prateado Hardline", "preco_de": 58.91, "preco_por": 31.81, "desconto": 46, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_917350-MLA117616361709_092026-AB.webp", "link": "https://meli.la/2UdN74y", "cupom": null, "categoria": "Setup & Informática"}, {"id": 272, "titulo": "Caixinha De Som Portátil Bluetooth Radio Fm Pendrive Sd Alta Verde-musgo 127/220v", "preco_de": 129.0, "preco_por": 70.81, "desconto": 45, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_989399-MLB95208429729_102025-AB--caixinha-de-som-portatil-bluetooth-radio-fm-pendrive-sd-alta.webp", "link": "https://meli.la/2Rw1WgP", "cupom": null, "categoria": "Fones & Áudio"}, {"id": 271, "titulo": "Caixa De Som Bluetooth Projetor Galáxia Luminária Estrelas Preto 5v", "preco_de": 62.9, "preco_por": 46.46, "desconto": 26, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_672649-MLB117363201391_092026-AB--caixa-de-som-bluetooth-projetor-galaxia-luminaria-estrelas.webp", "link": "https://meli.la/2iopopF", "cupom": null, "categoria": "Fones & Áudio"}, {"id": 270, "titulo": "Rádio Bluetooth Antigo Retrô Am Fm Vintage Pendrive SD Entrada USB TF MP3 Portátil Led Auxiliar Antena Alça Analógico Bivolt Caixa De Som Zona Rural Potente Som Forte A Pilhas Marca LFAL Busato", "preco_de": 169.99, "preco_por": 97.8, "desconto": 42, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_809314-MLA116191028825_082026-AB.webp", "link": "https://meli.la/18fe6Sq", "cupom": null, "categoria": "Fones & Áudio"}, {"id": 269, "titulo": "FONE Samsung Galaxy Buds Core", "preco_de": 349.0, "preco_por": 271.59, "desconto": 22, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_733029-MLA96883295535_102025-AB.webp", "link": "https://meli.la/1YowDBT", "cupom": null, "categoria": "Fones & Áudio"}, {"id": 263, "titulo": "Lixeira Inteligente Automática Com Sensor Sem Toque Casa 16l Branco", "preco_de": 158.0, "preco_por": 68.45, "desconto": 57, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_986743-MLB115344686509_072026-AB--lixeira-inteligente-automatica-com-sensor-sem-toque-casa-16l.webp", "link": "https://meli.la/1zLpdNF", "cupom": null, "categoria": "Casa Inteligente"}, {"id": 262, "titulo": "3 Rolos Papel Etiqueta Aiyin D11pro D11 30x15mm Papel Etiqueta Compatível Aiyin Impressora De Etiquetas Portátil Mini Etiquetas Adesivas", "preco_de": 100.0, "preco_por": 74.78, "desconto": 25, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_946551-MLA95761610966_102025-AB.webp", "link": "https://meli.la/2EYMcHp", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 261, "titulo": "Balança Digital Plataforma 200kg Com Tecla Tara E Zero Led 127/220v Preto", "preco_de": 461.0, "preco_por": 368.59, "desconto": 20, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_683970-MLB115711397355_082026-AB--balanca-digital-plataforma-200kg-com-tecla-tara-e-zero-led.webp", "link": "https://meli.la/2NGZUAe", "cupom": null, "categoria": "Outros Gadgets"}, {"id": 260, "titulo": "Suporte De Monitor 13'' A 32'' Articulado Pistão A Gás 360° Preto", "preco_de": 199.0, "preco_por": 113.0, "desconto": 43, "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_917055-MLB114197403939_072026-AB--suporte-de-monitor-13-a-32-articulado-pistao-a-gas-360.webp", "link": "https://meli.la/1T28Jcp", "cupom": null, "categoria": "Setup & Informática"}];
+        const productList = document.getElementById('productList');
+        const searchInput = document.getElementById('searchInput');
+        const categoryChips = document.getElementById('categoryChips');
+        const counter = document.getElementById('counter');
+        const emptyState = document.getElementById('emptyState');
+
+        let filtroCategoria = 'all';
+        let termoBusca = '';
+
+        function renderizar() {
+            const filtrados = PRODUTOS.filter(p => {
+                // Filtro categoria
+                let bateCat = true;
+                if (filtroCategoria === '+50%') {
+                    bateCat = (p.desconto >= 50);
+                } else if (filtroCategoria !== 'all') {
+                    bateCat = (p.categoria === filtroCategoria);
+                }
+
+                // Filtro busca
+                let bateBusca = true;
+                if (termoBusca) {
+                    const termo = termoBusca.toLowerCase();
+                    bateBusca = p.titulo.toLowerCase().includes(termo) || p.categoria.toLowerCase().includes(termo);
+                }
+
+                return bateCat && bateBusca;
+            });
+
+            counter.textContent = filtrados.length;
+
+            if (filtrados.length === 0) {
+                productList.innerHTML = '';
+                emptyState.style.display = 'block';
+                return;
+            }
+
+            emptyState.style.display = 'none';
+
+            productList.innerHTML = filtrados.map(p => {
+                const precoDeHtml = p.preco_de && p.preco_de > p.preco_por 
+                    ? `<span class="price-old">R$ ${p.preco_de.toFixed(2).replace('.', ',')}</span>` 
+                    : '';
+
+                const descBadge = p.desconto > 0 
+                    ? `<span class="discount-badge">-${p.desconto}%</span>` 
+                    : '';
+
+                const cupomHtml = p.cupom 
+                    ? `<span style="font-size:10px; background:#ffd233; color:#070d19; font-weight:800; padding:1px 5px; border-radius:4px; margin-left:6px;">CUPOM: ${p.cupom}</span>` 
+                    : '';
+
+                return `
+                <a href="${p.link}" target="_blank" rel="noopener" class="product-card">
+                    <div class="product-thumb-wrap">
+                        <img src="${p.imagem}" alt="${p.titulo}" class="product-thumb" loading="lazy">
+                        ${descBadge}
+                    </div>
+                    <div class="product-info">
+                        <div class="product-cat">${p.categoria} ${cupomHtml}</div>
+                        <h2 class="product-title">${p.titulo}</h2>
+                        <div class="price-row">
+                            ${precoDeHtml}
+                            <span class="price-current">R$ ${p.preco_por.toFixed(2).replace('.', ',')}</span>
+                        </div>
+                        <div class="btn-buy">VER NO MERCADO LIVRE →</div>
+                    </div>
+                </a>
+                `;
+            }).join('');
+        }
+
+        // Listeners
+        searchInput.addEventListener('input', (e) => {
+            termoBusca = e.target.value.trim();
+            renderizar();
+        });
+
+        categoryChips.addEventListener('click', (e) => {
+            const btn = e.target.closest('.chip');
+            if (!btn) return;
+            document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+            btn.classList.add('active');
+            filtroCategoria = btn.dataset.cat;
+            renderizar();
+        });
+
+        // Inicializa
+        renderizar();
+    </script>
+</body>
+</html>
